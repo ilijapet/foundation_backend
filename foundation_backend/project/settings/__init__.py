@@ -1,10 +1,9 @@
 from pathlib import Path
-from split_settings.tools import optional, include
 
+from split_settings.tools import include, optional
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
-
 
 # Namsapacing our custom environment variables
 ENVVAR_SETTINGS_PREFIX = 'BACKENDSETTINGS_'
@@ -18,5 +17,4 @@ include(
     optional(LOCAL_SETTINGS_PATH),
     # Here we are loading our environment settings to override the base settings
     "envvars.py",
-
 )
