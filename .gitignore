@@ -84,3 +84,4 @@ keys_amazon.pem
 
 # Gunicorn
 var/
+test.log
