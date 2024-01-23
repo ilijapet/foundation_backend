@@ -18,17 +18,17 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
             - name: Build Docker image
-                run: docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/foundationbackend .
+              run: docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/foundationbackend .
             - name: Push Docker image
-                run: docker push ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
+              run: docker push ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
 
     deploy:
         needs: build
         runs-on: aws-ec2-back
         steps:
             - name: Pull Docker image
-            run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
+              run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
             - name: delete Docker image
-            run: sudo docker rm -f foundationbackend
+              run: sudo docker rm -f foundationbackend
             - name: Run Docker image
-            run: sudo docker run -d -p 8000:8000 --name foundationbackend ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
+              run: sudo docker run -d -p 8000:8000 --name foundationbackend ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
