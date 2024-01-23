@@ -14,7 +14,7 @@ HANDLERS = {
     'app_2': {
         'level': 'DEBUG',
         'class': 'logging.FileHandler',
-        'filename': './foundation_backend/debug_app_2.log',
+        'filename': './foundation_backend/log/debug_app_2.log',
         'formatter': 'standard',
     }
 }

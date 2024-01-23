@@ -12,7 +12,7 @@ LOCAL_SETTINGS_PATH = str(BASE_DIR / "local/settings.dev.py")
 
 include(
     'base.py',
-    "logging.py",
+    # "logging.py",
     # Here wew are loading our local settings to override the base settings
     # Each developer can have his own local settings
     optional(LOCAL_SETTINGS_PATH),
