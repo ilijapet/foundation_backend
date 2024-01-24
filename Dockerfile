@@ -27,7 +27,7 @@ COPY . .
 # Collect static files
 RUN pwd
 RUN ls -la
-
-RUN poetry run python -m ***_backend.manage collectstatic --noinput
+RUN cd ***_backend
+# RUN poetry run python -m ***_backend.manage collectstatic --noinput
 
 
