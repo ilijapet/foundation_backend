@@ -28,6 +28,8 @@ COPY . .
 RUN pwd
 RUN ls -la
 RUN cd ***_backend
+RUN pwd
+
 # RUN poetry run python -m ***_backend.manage collectstatic --noinput
 
 
