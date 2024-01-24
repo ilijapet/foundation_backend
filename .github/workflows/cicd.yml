@@ -22,7 +22,7 @@ jobs:
                 echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
                 echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
                 echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
-                docker-compose -f docker-compose-prod.yml build foundation_backend
+                docker-compose -f docker-compose-prod.yml build app
                 docker images
                 docker tag app_foundation_backend:latest ilijapetro/app_foundation_backend:latest
                 docker push ilijapetro/app_foundation_backend:latest
