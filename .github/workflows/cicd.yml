@@ -30,9 +30,9 @@ jobs:
         needs: build
         runs-on: aws-ec2-back
         steps:
-            - name: Pull Docker image
-              run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
             - name: delete Docker image
               run: sudo docker rm -f foundationbackend
+            - name: Pull Docker image
+              run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
             - name: Run Docker image
               run: sudo docker run -d -p 8000:8000 --name foundationbackend ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest > ilija.txt
