@@ -18,24 +18,20 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
             - name: Build and push Docker Compose
-              # env:
-              #   POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-              #   POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-              #   POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
               run: |
                 echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
                 echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
                 echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
-                docker-compose -f docker-compose-prod.yml build foundationbackend
-                docker tag backend_foundationbackend:latest ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
-                docker push ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
+                docker-compose -f docker-compose-prod.yml build foundation_backend
+                docker tag foundation_backend:latest ${{ secrets.DOCKER_USERNAME }}/foundation_backend:latest
+                docker push ${{ secrets.DOCKER_USERNAME }}/foundation_backend:latest
     deploy:
         needs: build
         runs-on: aws-ec2-back
         steps:
             - name: delete Docker image
-              run: sudo docker rm -f foundationbackend || true
+              run: sudo docker rm -f foundation_backend || true
             - name: Pull Docker image
-              run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
+              run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundation_backend:latest
             - name: Run Docker image
-              run: sudo docker run -d -p 8000:8000 --name foundationbackend ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
+              run: sudo docker run -d -p 8000:8000 --name foundation_backend ${{ secrets.DOCKER_USERNAME }}/foundation_backend:latest

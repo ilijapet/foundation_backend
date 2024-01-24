@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-      foundationbackend:
+      foundation_backend:
         build: .
         env_file:
           - ./.env
