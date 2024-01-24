@@ -17,7 +17,6 @@ RUN set -xe \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install Python dependencies
-# COPY ./poetry.lock .
 COPY ./pyproject.toml .
 
 RUN poetry install 
