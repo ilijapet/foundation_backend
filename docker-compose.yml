@@ -4,14 +4,11 @@ services:
   foundationbackend:
     build: ./
     image: foundationbackend
-    # env_file:
-    #   - ./.env
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
     command: poetry shell
-    # command: poetry run python -m foundation_backend.manage runserver 0.0.0.0:8000
     command: make gunicorn-dev
     volumes:
       - ./:/usr/src/app/
@@ -25,12 +22,6 @@ services:
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    # env_file:
-    #   - ./.env
-    # environment:
-    #   - POSTGRES_USER=${POSTGRES_USER}
-    #   - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    #   - POSTGRES_DB=${POSTGRES_DB}
 
 volumes:
   postgres_data:
