@@ -23,7 +23,6 @@ jobs:
                 echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
                 echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
                 docker-compose -f docker-compose-prod.yml build app
-                docker images
                 docker tag foundation_backend_app:latest ilijapetro/foundation_backend_app:latest
                 docker push ilijapetro/foundation_backend_app:latest
     deploy:
@@ -31,8 +30,8 @@ jobs:
         runs-on: aws-ec2-back
         steps:
             - name: delete Docker image
-              run: sudo docker rm -f foundation_backend || true
+              run: sudo docker rm -f foundation_backend_app || true
             - name: Pull Docker image
-              run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundation_backend:latest
+              run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foundation_backend_app:latest
             - name: Run Docker image
-              run: sudo docker run -d -p 8000:8000 --name foundation_backend ${{ secrets.DOCKER_USERNAME }}/foundation_backend:latest
+              run: sudo docker run -d -p 8000:8000 --name foundation_backend_app ${{ secrets.DOCKER_USERNAME }}/foundation_backend_app:latest
