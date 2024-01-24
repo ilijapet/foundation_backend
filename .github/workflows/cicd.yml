@@ -23,7 +23,7 @@ jobs:
                 POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
                 POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
               run: |
-                docker-compose build foundationbackend
+                docker-compose -f docker-compose-prod.yml build foundationbackend
                 docker tag foundationbackend:latest ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
                 docker push ${{ secrets.DOCKER_USERNAME }}/foundationbackend:latest
     deploy:
