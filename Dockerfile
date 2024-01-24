@@ -25,7 +25,8 @@ RUN poetry install
 COPY . .
 
 # Collect static files
-RUN print("iliiiiiiiiiiiiiiiiiiiiiiiiiiiija care")
+RUN pwd
+RUN ls -la
 # RUN poetry run python -m foundation_backend.manage collectstatic --noinput
 
 
