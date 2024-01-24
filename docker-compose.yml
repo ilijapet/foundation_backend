@@ -8,7 +8,8 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
-    command: poetry shell && poetry run python -m foundation_backend.manage runserver
+    # command: poetry shell && poetry run python -m foundation_backend.manage runserver
+    command: python -m foundation_backend.manage runserver
     volumes:
       - ./:/usr/src/app/
     ports:
