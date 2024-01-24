@@ -24,8 +24,8 @@ jobs:
                 echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
                 docker-compose -f docker-compose-prod.yml build app
                 docker images
-                docker tag app_foundation_backend:latest ilijapetro/app_foundation_backend:latest
-                docker push ilijapetro/app_foundation_backend:latest
+                docker tag foundation_backend_app:latest ilijapetro/foundation_backend_app:latest
+                docker push ilijapetro/foundation_backend_app:latest
     deploy:
         needs: build
         runs-on: aws-ec2-back
