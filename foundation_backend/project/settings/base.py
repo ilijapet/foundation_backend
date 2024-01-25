@@ -19,6 +19,7 @@ if os.path.isfile(env_file):
     # read a local .env file
     env.read_env(env_file)
     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
+    print(POSTGRES_PASSWORD, "ilija")
     # ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
     ALLOWED_HOSTS.append(env("ALLOWED_HOSTS"))
     print(ALLOWED_HOSTS)
