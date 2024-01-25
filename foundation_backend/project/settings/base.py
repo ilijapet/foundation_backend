@@ -20,7 +20,8 @@ if os.path.isfile(env_file):
     env.read_env(env_file)
     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
     # ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
-    ALLOWED_HOSTS.append(env("ALLOWED_HOSTS"))
+    # ALLOWED_HOSTS.append(env("ALLOWED_HOSTS"))
+    ALLOWED_HOSTS.append("52.57.194.247")
 else:
     raise ValueError("We cannot find .env file")
 
