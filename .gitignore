@@ -28,7 +28,6 @@ wheels/
 # Django
 *.pot
 *.pyc
-/staticfiles
 __pycache__
 db.sqlite3
 media
