@@ -23,7 +23,7 @@ if os.path.isfile(env_file):
     # read a local .env file
     env.read_env(env_file)
     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]", "52.57.194.247"]
 else:
     raise ValueError("We cannot find .env file")
 
