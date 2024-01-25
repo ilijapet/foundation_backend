@@ -7,7 +7,7 @@ import environ
 SECRET_KEY = NotImplemented
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # how to ignore flake =8 error
 env = environ.Env()
 #  how to ignore error?
