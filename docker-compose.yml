@@ -2,8 +2,6 @@ version: '3.8'
 services:
       web:
         build: .
-        # command: poetry shell
-        command: make gunicorn-dev
         volumes:
           - ./:/usr/src/app/
         ports:
