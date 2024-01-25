@@ -21,6 +21,7 @@ if os.path.isfile(env_file):
     env.read_env(env_file)
     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
     ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
+    print("ALLOWED", ALLOWED_HOSTS)
 else:
     raise ValueError("We cannot find .env file")
 
