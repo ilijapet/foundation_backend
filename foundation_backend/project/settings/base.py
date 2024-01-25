@@ -8,7 +8,6 @@ SECRET_KEY = NotImplemented
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
 env = environ.Env()
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
 env.read_env(env_file)
@@ -20,18 +19,7 @@ if os.path.isfile(env_file):
     env.read_env(env_file)
     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
     POSTGRES_USER = env("POSTGRES_USER")
-    print(POSTGRES_PASSWORD, "ilija")
-    print(POSTGRES_USER, "ilija")
-    DOCKER_USERNAME = env("DOCKER_USERNAME")
-    DOCKER_PASSWORD = env("DOCKER_PASSWORD")
-    DOCKER_DB = env("DOCKER_DB")
-    print(DOCKER_USERNAME, "ilija")
-    print(DOCKER_PASSWORD, "ilija")
-    # ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
-    ALLOWED_HOSTS = env("ALLOWED_HOSTS")
-    print(ALLOWED_HOSTS, "nevena")
-    ALLOWED_HOSTS.append(env("ALLOWED_HOSTS"))
-    print(ALLOWED_HOSTS)
+    ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
     # ALLOWED_HOSTS.append("52.57.194.247")
 else:
     raise ValueError("We cannot find .env file")
