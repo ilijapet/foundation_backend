@@ -83,5 +83,4 @@ nosetests.xml
 keys_amazon.pem
 
 # Gunicorn
-var/
 test.log
