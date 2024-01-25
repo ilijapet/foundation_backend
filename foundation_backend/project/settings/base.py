@@ -8,13 +8,11 @@ SECRET_KEY = NotImplemented
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# how to ignore flake =8 error
+
 env = environ.Env()
-#  how to ignore error?
 
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
 env.read_env(env_file)
-ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
 env = environ.Env()
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
@@ -22,6 +20,7 @@ if os.path.isfile(env_file):
     # read a local .env file
     env.read_env(env_file)
     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
+    ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 else:
     raise ValueError("We cannot find .env file")
 
