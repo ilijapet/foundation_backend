@@ -14,8 +14,7 @@ env = environ.Env()
 
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
 env.read_env(env_file)
-# ALLOWED_HOSTS: List[str] =
-# ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
 env = environ.Env()
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
@@ -23,7 +22,6 @@ if os.path.isfile(env_file):
     # read a local .env file
     env.read_env(env_file)
     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]", "52.57.194.247"]
 else:
     raise ValueError("We cannot find .env file")
 
@@ -74,23 +72,13 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "foundation",
         "USER": "denis",
-        "PASSWORD": "denis",  # here we should load from .env file not hardcoded
+        "PASSWORD": POSTGRES_PASSWORD,  # here we should load from .env file not hardcoded
         "HOST": "db",
         "PORT": "5432",
         "ATOMIC_REQUESTS": True,
         "CONN_MAX_AGE": 600,
     }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
