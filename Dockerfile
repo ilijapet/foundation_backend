@@ -23,8 +23,3 @@ RUN poetry install
 
 # Copy project files
 COPY . .
-
-# CMD ["make", "gunicorn-dev"]
-# RUN poetry run python -m foundation_backend.manage collectstatic --noinput
-
-
