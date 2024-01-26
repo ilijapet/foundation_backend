@@ -2,6 +2,7 @@ version: '3.8'
 services:
       web:
         build: .
+        command: ["make", "gunicorn-dev"]
         volumes:
           - ./:/usr/src/app/
         ports:
