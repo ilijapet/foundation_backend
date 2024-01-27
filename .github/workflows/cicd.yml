@@ -10,8 +10,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             # copy repo into runner so subsequent steps can access it
-            # - name: Checkout
-            #   uses: actions/checkout@v3
+            - name: Checkout
+              uses: actions/checkout@v3
             - name: Login to DockerHub
               uses: docker/login-action@v1
               with:

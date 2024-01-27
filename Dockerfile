@@ -23,3 +23,5 @@ RUN poetry install
 
 # Copy project files
 COPY . .
+# command to collect static file
+RUN poetry run python -m foundation_backend.manage collectstatic --noinput

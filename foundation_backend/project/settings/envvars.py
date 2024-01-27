@@ -1,6 +1,21 @@
 from foundation_backend.utils_fun.collections import deep_update
 from foundation_backend.utils_fun.get_seetings_from_env import get_settings_from_environment
 
+# import environ
+
+# env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
+# env = environ.Env()
+# env.read_env(env_file)
+
+# if os.path.isfile(env_file):
+#     # read a local .env file
+#     env.read_env(env_file)
+#     POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
+#     POSTGRES_USER = env("POSTGRES_USER")
+#     ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
+# else:
+#     raise ValueError("We cannot find .env file")
+
 # System environment variables
 # 1) With globals() we are picking up all python globals == base_dict from
 # deep_update # function

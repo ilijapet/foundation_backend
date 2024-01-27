@@ -8,9 +8,6 @@ SECRET_KEY = NotImplemented
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-env = environ.Env()
-env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
-env.read_env(env_file)
 
 env = environ.Env()
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
@@ -70,7 +67,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "foundation",
-        "USER": "denis",
+        "USER": POSTGRES_USER,
         "PASSWORD": POSTGRES_PASSWORD,  # here we should load from .env file not hardcoded
         "HOST": "db",
         "PORT": "5432",
