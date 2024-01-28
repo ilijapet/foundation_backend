@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "test_example",
+    "rest_framework",
+    "foundation_backend.example_app.apps.ExampleAppConfig",
 ]
 
 MIDDLEWARE = [

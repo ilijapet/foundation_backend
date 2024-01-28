@@ -53,5 +53,6 @@ gunicorn-dev:
 	poetry run gunicorn -c gunicorn.dev.py 
 	tail -f ./var/log/gunicorn/dev.log
 
-# Add gunnicor prod
-
+.PHONY: test
+test:
+	docker-compose run -e PYTHONPATH=/usr/src/app/ --workdir /usr/src/app/foundation_backend web poetry run pytest -v -rs -n auto --show-capture=no
