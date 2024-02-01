@@ -7,10 +7,9 @@ urlpatterns = [
     path("", include("foundation_backend.example_app.urls"), name="example_app"),
 ]
 
-print(settings.DEBUG)
-
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns = [
         path("__debug__/", include(debug_toolbar.urls), name="debug_toolbar"),
     ] + urlpatterns

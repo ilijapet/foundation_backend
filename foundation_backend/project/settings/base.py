@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "foundation_backend.example_app.apps.ExampleAppConfig",
-    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -45,7 +44,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "foundation_backend.project.urls"
