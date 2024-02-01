@@ -7,7 +7,7 @@ import environ
 SECRET_KEY = NotImplemented
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 env = environ.Env()
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
