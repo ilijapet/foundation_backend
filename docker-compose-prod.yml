@@ -2,7 +2,7 @@ version: "3.8"
 services:
   app:
     build: .
-    command: /bin/bash -c "pkill gunicorn || true && > ./var/run/gunicorn/dev.pid && poetry run gunicorn -c gunicorn.dev.py && tail -f ./var/log/gunicorn/dev.log"
+    command: /bin/bash -c "pkill gunicorn || true && poetry run gunicorn -c gunicorn.dev.py && tail -f ./var/log/gunicorn/dev.log"
     env_file:
       - ./.env
     environment:
