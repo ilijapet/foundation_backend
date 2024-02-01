@@ -7,7 +7,9 @@ import environ
 SECRET_KEY = NotImplemented
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+SECURE_SSL_REDIRECT = True
 
 env = environ.Env()
 env_file = os.path.join(BASE_DIR, ".env")  # type: ignore
@@ -31,6 +33,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "foundation_backend.example_app.apps.ExampleAppConfig",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -42,6 +45,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "foundation_backend.project.urls"

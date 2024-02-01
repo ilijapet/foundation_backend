@@ -50,6 +50,7 @@ up-dependencies-only:
 .PHONY: gunicorn-dev
 gunicorn-dev:
 	pkill gunicorn || true
+	> ./var/run/gunicorn/dev.pid
 	poetry run gunicorn -c gunicorn.dev.py 
 	tail -f ./var/log/gunicorn/dev.log
 
